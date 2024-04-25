@@ -16,7 +16,7 @@ while (loopAgain)
         DisplayMainMenu();
         string mainMenuChoice = Prompt("\nEnter menu selection: ").ToUpper();
         if (mainMenuChoice == "N")
-            myClient = newClient();
+            myClient = NewClient();
         if (mainMenuChoice == "S")
             ShowClientInfo(myClient);
 		if (mainMenuChoice == "Q")
@@ -155,9 +155,9 @@ void ShowClientInfo(Client client)
 {
     if (client == null)
             throw new Exception($"No client in Memory");
-         Console.WriteLine($"\n{Client.ToString()}");
-         Console.WriteLine($"Bmi Score  :\t{Client.BmiScore:n4}");
-         Console.WriteLine($"Bmi Status :\t{Client.BmiStatus}");
+         Console.WriteLine($"\n{client.ToString()}");
+         Console.WriteLine($"Bmi Score  :\t{client.BmiScore:n4}");
+         Console.WriteLine($"Bmi Status :\t{client.BmiStatus}");
 }
 
 
@@ -193,7 +193,7 @@ void LoadFileValuesToMemory(List<Client> listOfClients)
 				{
 					//Console.WriteLine($"itemIndex: {j}; item: {items[j]}");
 				}
-				Client myClient = new Client(items[0], items[1], double.Parse(items[2]), double.Parse(items[3]), items[4]);
+				Client myClient = new Client(items[0], items[1], double.Parse(items[2]), double.Parse(items[3]));
 				listOfClients.Add(myClient);
 			}
 			Console.WriteLine($"Load complete. {fileName} has {listOfClients.Count} data entries");
@@ -214,7 +214,7 @@ void SaveMemoryValuesToFile(List<Client> listOfClients)
 	string[] csvLines = new string[listOfClients.Count];
 	for (int i = 0; i < listOfClients.Count; i++)
 	{
-		csvLines[i] = listOfPets[i].ToString();
+		csvLines[i] = listOfClients[i].ToString();
 	}
 	File.WriteAllLines(filePath, csvLines);
 	Console.WriteLine($"Save complete. {fileName} has {listOfClients.Count} entries.");

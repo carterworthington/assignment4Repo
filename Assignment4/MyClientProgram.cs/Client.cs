@@ -8,8 +8,8 @@ namespace ClientCartW
 	{
 		private string _firstname;
 		private string _lastname;
-		private string _weight;
-		private string _height;
+		private double _weight;
+		private double _height;
 
 
 
@@ -17,20 +17,20 @@ namespace ClientCartW
 		// Non-Greedy Constructor.
 		public Client()
 		{
-			
-			FirstName = "YYYY";
-			LastName = "XXXX";
-			Weight = 0;
-			Height = 0;
+
+			_firstname = "YYYY";
+			_lastname = "XXXX";
+			_weight = 0;
+			_height = 0;
 		}
 
 		//Greedy Constructor
-		public Client(string FirstName, string LastName, int Weight, int Height)
+		public Client(string FirstName, string LastName, double Weight, double Height)
 		{
-			FirstName = firstname;
-			LastName = lastName;
-			Weight = weight;
-			Height = Height;
+			_firstname = FirstName;
+            _lastname = LastName;
+            _weight = Weight;
+            _height = Height;
 		}
 
 
@@ -59,7 +59,7 @@ namespace ClientCartW
 			}
 		}
 
-		public int Weight
+		public double Weight
 		{
 			get { return _weight; }
 			set
@@ -70,7 +70,7 @@ namespace ClientCartW
 			}
 		}
 
-		public int Height
+		public double Height
 		{
 			get { return _height; }
 			set
@@ -84,32 +84,47 @@ namespace ClientCartW
 
 
 
+
+
+
+
+		//Read Only Fully Implemented Properties 
+
+		public double BmiScore
+		{
+			get
+			{
+				return (_weight / ((double)_height * _height)) * 703;
+			}
+		}
+
+		public string BmiStatus
+		{
+			get
+			{
+				if (BmiScore <= 18.4)
+				{
+					return "Underweight";
+				}
+				else if (BmiScore <= 24.9)
+				{
+					return "Normal";
+				}
+				else if (BmiScore <= 39.9)
+				{
+					return "Overweight";
+				}
+				else
+				{
+					return "Obese";
+				}
+			}
+		}
+		//method
+		public override string ToString()
+		{
+			return $"{FirstName},{LastName},{Weight},{Height}";
+		}
+	}
 	
-
-
-
-//Read Only Fully Implemented Properties 
-
-public double BmiScore
-{
-	get {
-		return	(weight / (height * height)) * 703;
-	}
-}
-
-public string BmiStatus 
-{
-	get {
-		if (BmiScore < 18.4)
-	}
-}
-
-}
-//method 
-
-public override string ToString()
-{
-	return $"{FirstName},{LastName},{Weight},{Height}";
-}
-
 }

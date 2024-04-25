@@ -3,3 +3,13 @@ C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyCl
 C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.AssemblyInfo.cs
 C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.csproj.CoreCompileInputs.cache
 C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.sourcelink.json
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\bin\Debug\net8.0\MyClientProgram.cs.exe
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\bin\Debug\net8.0\MyClientProgram.cs.deps.json
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\bin\Debug\net8.0\MyClientProgram.cs.runtimeconfig.json
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\bin\Debug\net8.0\MyClientProgram.cs.dll
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\bin\Debug\net8.0\MyClientProgram.cs.pdb
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.dll
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\refint\MyClientProgram.cs.dll
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.pdb
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.genruntimeconfig.cache
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\ref\MyClientProgram.cs.dll
