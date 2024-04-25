@@ -1,0 +1,5 @@
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.GeneratedMSBuildEditorConfig.editorconfig
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.AssemblyInfoInputs.cache
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.AssemblyInfo.cs
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.csproj.CoreCompileInputs.cache
+C:\CPSC1012\assignment4Repo\Assignment4\MyClientProgram.cs\obj\Debug\net8.0\MyClientProgram.cs.sourcelink.json

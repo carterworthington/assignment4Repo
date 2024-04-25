@@ -2,6 +2,7 @@
 
 
 namespace ClientCartW
+
 {
 	public class Client
 	{
@@ -83,8 +84,8 @@ namespace ClientCartW
 
 
 
-	}
-}
+	
+
 
 
 //Read Only Fully Implemented Properties 
@@ -99,6 +100,16 @@ public double BmiScore
 public string BmiStatus 
 {
 	get {
-		if BmiScore < 18.4
+		if (BmiScore < 18.4)
 	}
+}
+
+}
+//method 
+
+public override string ToString()
+{
+	return $"{FirstName},{LastName},{Weight},{Height}";
+}
+
 }
