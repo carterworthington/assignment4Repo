@@ -3,7 +3,7 @@
 using ClientCartW;
 
 
-Client myClient = new();
+Client myClient = new Client();
 List<Client> listOfClients = [];
 
 LoadFileValuesToMemory(listOfClients);
@@ -19,7 +19,35 @@ while (loopAgain)
             myClient = newClient();
         if (mainMenuChoice == "S")
             ShowClientInfo(myClient);
+		if (mainMenuChoice == "Q")
+		{
+			SaveMemoryValuesToFile(listOfClients);
+			loopAgain = false;
+			throw new Exception("Bye, hope to see you again.");
+		}
+		if (mainMenuChoice == "E")
+		{
+			while (true)
+			{
+				DisplayEditMenu();
+				string editMenuChoice = Prompt("\nEnter a Edit Menu Choice: ").ToUpper();
+				if (editMenuChoice == "F")
+					GetFirstName(myClient);
+				if (editMenuChoice == "L")
+					GetLastName(myClient);
+				if (editMenuChoice == "H")
+					GetHeight(myClient);
+				if (editMenuChoice == "W")
+					GetWeight(myClient);
+				if (editMenuChoice == "R")
+					throw new Exception("Returning to Main Menu");
+			}
+		}
     }
+	catch (Exception ex)
+	{
+		Console.WriteLine($"{ex.Message}");
+	}
 }
 
 
@@ -32,6 +60,15 @@ void DisplayMainMenu()
     Console.WriteLine("[S]how client BMI info");
     Console.WriteLine("[E]dit client");
     Console.WriteLine("[Q]uit");
+}
+
+void DisplayEditMenu()
+{
+	Console.WriteLine("[F]irst name");
+	Console.WriteLine("[L]ast name");
+	Console.WriteLine("[H]eight");
+	Console.WriteLine("[W]eight");
+	Console.WriteLine("[R]eturn to main menu");
 }
 
 string Prompt(string prompt)
@@ -117,7 +154,7 @@ void GetHeight (Client client)
 void ShowClientInfo(Client client)
 {
     if (client == null)
-            throw new Exception($"No client in Memory")
+            throw new Exception($"No client in Memory");
          Console.WriteLine($"\n{Client.ToString()}");
          Console.WriteLine($"Bmi Score  :\t{Client.BmiScore:n4}");
          Console.WriteLine($"Bmi Status :\t{Client.BmiStatus}");
@@ -167,4 +204,18 @@ void LoadFileValuesToMemory(List<Client> listOfClients)
 			Console.WriteLine($"{ex.Message}");
 		}
 	}
+}
+
+void SaveMemoryValuesToFile(List<Client> listOfClients)
+{
+	//string fileName = Prompt("Enter file name including .csv or .txt: ");
+	string fileName = "regout.csv";
+	string filePath = $"./data/{fileName}";
+	string[] csvLines = new string[listOfClients.Count];
+	for (int i = 0; i < listOfClients.Count; i++)
+	{
+		csvLines[i] = listOfPets[i].ToString();
+	}
+	File.WriteAllLines(filePath, csvLines);
+	Console.WriteLine($"Save complete. {fileName} has {listOfClients.Count} entries.");
 }
