@@ -4,7 +4,9 @@ using ClientCartW;
 
 
 Client myClient = new Client();
-List<Client> listOfClients = [];
+List<Client> listOfClients = new List<Client>();
+
+AddClientToList(myClient, listOfClients);
 
 LoadFileValuesToMemory(listOfClients);
 
@@ -15,7 +17,9 @@ while (loopAgain)
     {
         DisplayMainMenu();
         string mainMenuChoice = Prompt("\nEnter menu selection: ").ToUpper();
-        if (mainMenuChoice == "N")
+        if (mainMenuChoice == "L")
+			DisplayAllClientsInList(listOfClients);
+		if (mainMenuChoice == "N")
             myClient = NewClient();
         if (mainMenuChoice == "S")
             ShowClientInfo(myClient);
@@ -56,6 +60,7 @@ while (loopAgain)
 void DisplayMainMenu()
 {
     Console.WriteLine("\nMenu Options");
+	Console.WriteLine("[L]ist all Clients");
     Console.WriteLine("[N]ew client");
     Console.WriteLine("[S]how client BMI info");
     Console.WriteLine("[E]dit client");
@@ -100,7 +105,7 @@ double PromptDoubleBetweenMinMax(String msg, double min, double max)
 	{
 		try
 		{
-			Console.Write($"{msg} between {min} and {max} inclusive: ");
+			Console.Write($"{msg} ");
 			num = double.Parse(Console.ReadLine());
 			if (num < min || num > max)
 				throw new Exception($"Must be between {min:n2} and {max:n2}");
@@ -126,16 +131,38 @@ Client NewClient()
 }
 
 
-void GetFirstName (Client client)
+void GetFirstName(Client client)
 {
-    string myString = Prompt($"Enter client's first name: ");
-    client.FirstName = myString;
+    while (true)
+    {
+        string newFirstName = Prompt($"Enter client's first name: ");
+        if (!string.IsNullOrWhiteSpace(newFirstName) && newFirstName.All(char.IsLetter))
+        {
+            client.FirstName = newFirstName;
+            break;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter letters only for the first name.");
+        }
+    }
 }
 
-void GetLastName (Client client)
+void GetLastName(Client client)
 {
-    string myString = Prompt($"Enter client's last name: ");
-    client.FirstName = myString;
+    while (true)
+    {
+        string newLastName = Prompt($"Enter client's last name: ");
+        if (!string.IsNullOrWhiteSpace(newLastName) && newLastName.All(char.IsLetter))
+        {
+            client.LastName = newLastName;
+            break;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter letters only for the last name.");
+        }
+    }
 }
 
 void GetWeight (Client client)
@@ -148,6 +175,15 @@ void GetHeight (Client client)
 {
     double myDouble = PromptDoubleBetweenMinMax("Enter height in inches: ", 0, 1000);
     client.Height = myDouble;
+}
+
+void AddClientToList(Client myClient, List<Client> listOfClients)
+{
+	
+	if(myClient == null)
+		throw new Exception($"No Client provided to add to list");
+	listOfClients.Add(myClient);
+	Console.WriteLine($"Client added succesfully.");
 }
 
 
@@ -169,7 +205,12 @@ void ShowClientInfo(Client client)
 
 
 
-
+void DisplayAllClientsInList(List<Client> listOfClients)
+{
+	
+	foreach(Client client in listOfClients)
+		ShowClientInfo(client);
+}
 
 
 
